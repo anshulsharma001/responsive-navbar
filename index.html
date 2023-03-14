@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .nav_links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toggle_bar {
+            display: none;
+        }
+
+        @media (max-width:768px) {
+            .toggle_bar {
+                display: block;
+                z-index: 10;
+            }
+
+            .nav_links {
+                flex-direction: column;
+                position: absolute;
+                background-color: blue;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                min-height: 100vh;
+                justify-content: center;
+                align-items: center;
+                transition: all 300ms linear;
+            }
+        }
+
+        .show_nav {
+            left: 0 !important;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .col-3 {
+            width: 100%;
+            background-color: aqua;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .row {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="navBar">
+            <div>
+                <h1>LOGO</h1>
+            </div>
+            <div>
+
+                <ul id="Navbar" class="nav_links">
+                    <button onclick="hideNav()">
+                        close
+                    </button>
+                    <li>HOME</li>
+                    <li>CONTACT</li>
+                    <li>FAQ'S</li>
+                    <li>ABOUT US</li>
+                    <li>PRODUCTS</li>
+                </ul>
+            </div>
+            <button onclick="showNav()" class="toggle_bar">
+                menu
+            </button>
+        </div>
+    </nav>
+
+    <div style="min-height: 100vh; background-color: aquamarine;">
+
+
+        <div class="row">
+            <div class="col-3">1</div>
+            <div class="col-3">2</div>
+            <div class="col-3">3</div>
+            <div class="col-3">4</div>
+        </div>
+    </div>
+    <div style="min-height: 100vh; background-color: red;">
+
+    </div>
+    <script>
+
+        // const responsiveNavbar = ;
+        function showNav() {
+            document.getElementById("Navbar").classList.toggle("show_nav");
+            document.body.classList.toggle("overflow-hidden");
+        }
+        // function hideNav() {
+        //     document.getElementById("Navbar").classList.remove("show_nav");
+        // }
+    </script>
+</body>
+
+</html>
